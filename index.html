@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head></head>
+<head><link rel="stylesheet" href="./css/style.css"></head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Terra e Mesa</title>
@@ -11,14 +11,12 @@
 </head>
 <body>
 
-  {% include 'header/menu.html' %}
-
   <div class="container">
     <h1>Bem-vindo ao Terra e Mesa</h1>
     <p>Conectando produtores e consumidores de forma prática e rápida.</p>
   </div>
 
-  {% include './pages/footer/footerPrincipal.html' %}
+  <html-include src="./pages/footer/footerPrincipal.html"></html-include>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.js"></script>
