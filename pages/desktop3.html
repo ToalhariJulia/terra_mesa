@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Terra e Mesa - Criar Conta</title>
+  <link rel="stylesheet" href="./style-cadastro-prod.css  ">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body>
+<!-- Cabeçalho -->
+  <nav class="navbar navbar-expand-lg top-bar px-4 py-2">
+    <a class="navbar-brand d-flex align-items-center" href="./desktop1.html">
+      <img src="./planta-Photoroom.png" alt="Logo" class="logo me-2">
+      <strong>TERRA E MESA</strong>
+    </a>
+    <div class="collapse navbar-collapse ms-4">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="#"></a></li>
+        <li class="nav-item"><a class="nav-link" href="./desktop2.html">Produtos</a></li>
+        <li class="nav-item"><a class="nav-link" href="./sobre.html">Sobre nós</a></li>
+      </ul>
+<div class="d-flex align-items-center gap-2">
+  <a href="./login.html" class="text-dark text-decoration-none fw-semibold">Entrar</a>
+  <a href="./criar-conta.html" class="btn btn-success btn-sm">Criar conta</a>
+</div>
+</nav>
+<main class="container">
+<a href="./desktop5.html" style="text-decoration: none; color: inherit;">
+  <strong>Área do Produtor</strong> >
+</a>
+<a><strong>Cadastro de Produtos</strong></a>
+  <h2>Cadastro de Produtos</h2>
+  
+  <form class="produto-form" action="./cadastrar-produto.php" method="POST" enctype="multipart/form-data">
+    <div class="form-linha">
+      <div class="form-grupo">
+        <label for="codigo">Código *</label>
+        <input type="text" id="codigo" name="codigo">
+      </div>
+      <div class="form-grupo">
+        <label for="categoria">Categoria *</label>
+        <input type="text" id="categoria" name="categoria">
+      </div>
+      <div class="form-grupo">
+        <label for="imagem">Imagem *</label>
+        <input type="file" id="imagem" name="imagem">
+      </div>
+    </div>
+
+    <div class="form-grupo">
+      <label for="descricao">Descrição do Produto *</label>
+      <input type="text" id="descricao" name="descricao">
+    </div>
+
+    <div class="form-linha">
+      <div class="form-grupo">
+        <label for="quantidade">Quantidade *</label>
+        <input type="number" id="quantidade" name="quantidade">
+      </div>
+      <div class="form-grupo">
+        <label for="preco">Preço Unitário *</label>
+        <input type="text" id="preco" name="preco">
+      </div>
+      <div class="form-grupo">
+        <label for="unidade_medida">Unidade de Medida *</label>
+        <input type="text" id="unidade_medida" name="unidade_medida">
+      </div>
+    </div>
+
+    <div class="form-linha">
+      <div class="form-grupo">
+        <label for="tempo">Tempo de Produção</label>
+        <input type="text" id="tempo" name="tempo">
+      </div>
+      <div class="form-grupo">
+        <label for="cultivo">Tipo de Cultivo</label>
+        <input type="text" id="cultivo" name="cultivo">
+      </div>
+      <div class="form-grupo">
+        <label for="info">Informações Adicionais</label>
+        <input type="text" id="info" name="info">
+      </div>
+    </div>
+
+    <p class="aviso">(*) itens obrigatórios</p>
+
+    <div class="botoes-formulario">
+      <button type="submit" class="botao">Cadastrar</button>
+      <button type="button" class="botao">Consultar</button>
+      <button type="button" class="botao">Atualizar</button>
+      <button type="button" class="botao excluir">Deletar</button>
+    </div>
+  </form>
+</main>
