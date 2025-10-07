@@ -2,14 +2,13 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Terra e Mesa - Criar Conta</title>
-  <link rel="stylesheet" href="./style-cadastro-prod.css  ">
+  <title>Terra e Mesa - Pagamento</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
+  <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-<!-- Cabeçalho -->
-  <nav class="navbar navbar-expand-lg top-bar px-4 py-2">
+<!-- Cabeçalho existente -->
+<nav class="navbar navbar-expand-lg top-bar px-4 py-2">
     <a class="navbar-brand d-flex align-items-center" href="../pages/desktop1.html">
       <img src="../assets/images/planta-Photoroom.png" alt="Logo" class="logo me-2">
       <strong>TERRA E MESA</strong>
@@ -20,76 +19,154 @@
         <li class="nav-item"><a class="nav-link" href="../pages/desktop2.html">Produtos</a></li>
         <li class="nav-item"><a class="nav-link" href="../pages/sobre.html">Sobre nós</a></li>
       </ul>
-<div class="d-flex align-items-center gap-2">
-  <a href="../pages/login.html" class="text-dark text-decoration-none fw-semibold">Entrar</a>
-  <a href="../pages/criar-conta.html" class="btn btn-success btn-sm">Criar conta</a>
-</div>
+      <div class="d-flex align-items-center gap-2">
+        <a href="../pages/login.html" class="text-dark text-decoration-none fw-semibold">Entrar</a>
+        <a href="../pages/criar-conta.html" class="btn btn-success btn-sm">Criar conta</a>
+      </div>
+    </div>
 </nav>
-<main class="container">
-<a href="../pages/desktop5.html" style="text-decoration: none; color: inherit;">
-  <strong>Área do Produtor</strong> >
-</a>
-<a><strong>Cadastro de Produtos</strong></a>
-  <h2>Cadastro de Produtos</h2>
 
-  <form class="produto-form" action="../pages/cadastrar-produto.php" method="POST" enctype="multipart/form-data">
-    <div class="form-linha">
-      <div class="form-grupo">
-        <label for="codigo">Código *</label>
-        <input type="text" id="codigo" name="codigo">
+<!-- Nova seção de pagamento -->
+<main class="container my-5">
+  <div class="row">
+    <div class="col-md-8">
+      <h2 class="mb-4">Escolha a forma de pagamento</h2>
+      
+      <!-- Resumo do pedido -->
+      <div class="card mb-4">
+        <div class="card-header bg-success text-white">
+          <h5 class="mb-0">Resumo do Pedido</h5>
+        </div>
+        <div class="card-body">
+          <p class="mb-1">Subtotal: R$ <span id="subtotal">0,00</span></p>
+          <p class="mb-1">Frete: R$ <span id="frete">0,00</span></p>
+          <h5 class="mt-3">Total: R$ <span id="total">0,00</span></h5>
+        </div>
       </div>
-      <div class="form-grupo">
-        <label for="categoria">Categoria *</label>
-        <input type="text" id="categoria" name="categoria">
+
+      <!-- Opções de pagamento -->
+      <div class="card">
+        <div class="card-header">
+          <h5 class="mb-0">Métodos de Pagamento</h5>
+        </div>
+        <div class="card-body">
+          <!-- Pix -->
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="radio" name="paymentMethod" id="pix" checked>
+            <label class="form-check-label" for="pix">
+              <strong>PIX</strong> - Pagamento instantâneo
+            </label>
+          </div>
+
+          <!-- Cartão de Crédito -->
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="radio" name="paymentMethod" id="credit">
+            <label class="form-check-label" for="credit">
+              <strong>Cartão de Crédito</strong> - Até 12x sem juros
+            </label>
+          </div>
+
+          <!-- Boleto -->
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="radio" name="paymentMethod" id="boleto">
+            <label class="form-check-label" for="boleto">
+              <strong>Boleto Bancário</strong> - Vencimento em 3 dias úteis
+            </label>
+          </div>
+        </div>
       </div>
-      <div class="form-grupo">
-        <label for="imagem">Imagem *</label>
-        <input type="file" id="imagem" name="imagem">
+
+      <!-- Botões de ação -->
+      <div class="mt-4 d-flex justify-content-between">
+        <a href="../pages/carrinho.html" class="btn btn-outline-secondary">
+          Voltar ao carrinho
+        </a>
+        <button class="btn btn-success" onclick="finalizarPedido()">
+          Finalizar Pedido
+        </button>
       </div>
     </div>
 
-    <div class="form-grupo">
-      <label for="descricao">Descrição do Produto *</label>
-      <input type="text" id="descricao" name="descricao">
-    </div>
-
-    <div class="form-linha">
-      <div class="form-grupo">
-        <label for="quantidade">Quantidade *</label>
-        <input type="number" id="quantidade" name="quantidade">
-      </div>
-      <div class="form-grupo">
-        <label for="preco">Preço Unitário *</label>
-        <input type="text" id="preco" name="preco">
-      </div>
-      <div class="form-grupo">
-        <label for="unidade_medida">Unidade de Medida *</label>
-        <input type="text" id="unidade_medida" name="unidade_medida">
+    <!-- Endereço de entrega -->
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="mb-0">Endereço de Entrega</h5>
+        </div>
+        <div class="card-body">
+          <p class="mb-1"><strong id="nome-cliente">Carregando...</strong></p>
+          <p class="mb-1" id="endereco-linha1">Carregando...</p>
+          <p class="mb-1" id="endereco-linha2">Carregando...</p>
+          <p class="mb-0" id="endereco-cep">Carregando...</p>
+          <a href="#" class="btn btn-link mt-2" onclick="alterarEndereco()">Alterar endereço</a>
+        </div>
       </div>
     </div>
-
-    <div class="form-linha">
-      <div class="form-grupo">
-        <label for="tempo">Tempo de Produção</label>
-        <input type="text" id="tempo" name="tempo">
-      </div>
-      <div class="form-grupo">
-        <label for="cultivo">Tipo de Cultivo</label>
-        <input type="text" id="cultivo" name="cultivo">
-      </div>
-      <div class="form-grupo">
-        <label for="info">Informações Adicionais</label>
-        <input type="text" id="info" name="info">
-      </div>
-    </div>
-
-    <p class="aviso">(*) itens obrigatórios</p>
-
-    <div class="botoes-formulario">
-      <button type="submit" class="botao">Cadastrar</button>
-      <button type="button" class="botao">Consultar</button>
-      <button type="button" class="botao">Atualizar</button>
-      <button type="button" class="botao excluir">Deletar</button>
-    </div>
-  </form>
+  </div>
 </main>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+// Simulação de dados vindos do banco de dados
+function obterDadosDoPedido() {
+    // Aqui seria a chamada real para sua API/Banco de dados
+    return {
+        subtotal: 0.00,
+        frete: 0.00,
+        total: 0.00
+    };
+}
+
+// Função para formatar valores em Reais
+function formatarMoeda(valor) {
+    return valor.toFixed(2).replace('.', ',');
+}
+
+// Função para atualizar os valores na tela
+function atualizarValoresPedido() {
+    const dados = obterDadosDoPedido();
+    
+    document.getElementById('subtotal').textContent = formatarMoeda(dados.subtotal);
+    document.getElementById('frete').textContent = formatarMoeda(dados.frete);
+    document.getElementById('total').textContent = formatarMoeda(dados.total);
+}
+
+// Simulação de dados do endereço vindos do banco de dados
+function obterDadosEndereco() {
+    // Aqui seria a chamada real para sua API/Banco de dados
+    return {
+        nome: "João Silva",
+        rua: "Rua das Flores",
+        numero: "123",
+        bairro: "Bairro Jardim",
+        cidade: "São Paulo",
+        estado: "SP",
+        cep: "01234-567"
+    };
+}
+
+// Função para atualizar o endereço na tela
+function atualizarEnderecoEntrega() {
+    const endereco = obterDadosEndereco();
+    
+    document.getElementById('nome-cliente').textContent = endereco.nome;
+    document.getElementById('endereco-linha1').textContent = `${endereco.rua}, ${endereco.numero}`;
+    document.getElementById('endereco-linha2').textContent = `${endereco.bairro} - ${endereco.cidade}/${endereco.estado}`;
+    document.getElementById('endereco-cep').textContent = `CEP: ${endereco.cep}`;
+}
+
+// Atualiza tanto os valores do pedido quanto o endereço quando a página carrega
+document.addEventListener('DOMContentLoaded', () => {
+    atualizarValoresPedido();
+    atualizarEnderecoEntrega();
+});
+
+function finalizarPedido() {
+  const metodoPagamento = document.querySelector('input[name="paymentMethod"]:checked').id;
+  alert(`Pedido finalizado com sucesso! Método de pagamento: ${metodoPagamento}`);
+  // Aqui você pode adicionar a lógica para processar o pagamento
+  window.location.href = '../pages/confirmacao-pedido.html';
+}
+</script>
+</body>
+</html>
