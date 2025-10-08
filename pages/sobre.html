@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Sobre nós - Terra e Mesa</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="../css/style.css"> -->
   <style>
     .top-bar {
       background-color: #d2c0b5;
@@ -47,35 +48,61 @@
       font-weight: bold;
       text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
     }
+    .banner-container {
+      position: relative;
+      width: 100%;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    .banner-image {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .banner-text {
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 2.5rem;
+      font-weight: bold;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+      z-index: 1;
+      width: 100%;
+      padding: 0 20px;
+    }
   </style>
 </head>
 <body>
 
   <!-- Cabeçalho -->
   <nav class="navbar navbar-expand-lg top-bar px-4 py-2">
-    <a class="navbar-brand d-flex align-items-center" href="./desktop1.html">
-      <img src="./planta-Photoroom.png" alt="Logo" class="logo me-2">
+    <a class="navbar-brand d-flex align-items-center" href="../pages/desktop1.html">
+      <img src="../assets/images/planta-Photoroom.png" alt="Logo" class="logo me-2">
       <strong>TERRA E MESA</strong>
     </a>
     <div class="collapse navbar-collapse ms-4">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item"><a class="nav-link" href="#"></a></li>
-        <li class="nav-item"><a class="nav-link" href="./desktop2.html">Produtos</a></li>
-        <li class="nav-item"><a class="nav-link" href="./sobre.html">Sobre nós</a></li>
+        <li class="nav-item"><a class="nav-link" href="../pages/desktop2.html">Produtos</a></li>
+        <li class="nav-item"><a class="nav-link" href="../pages/sobre.html">Sobre nós</a></li>
       </ul>
 <div class="d-flex align-items-center gap-2">
-  <a href="./carrinho.html" class="btn btn-outline-success ms-2">
+  <a href="../pages/carrinho.html" class="btn btn-outline-success ms-2">
   Ver carrinho <i class="bi bi-cart"></i>
   </a>
-  <a href="./login.html" class="text-dark text-decoration-none fw-semibold">Entrar</a>
-  <a href="./criar-conta.html" class="btn btn-success btn-sm">Criar conta</a>
+  <a href="../pages/login.html" class="text-dark text-decoration-none fw-semibold">Entrar</a>
+  <a href="../pages/criar-conta.html" class="btn btn-success btn-sm">Criar conta</a>
 </div>
 
   </nav>
 
   <!-- Banner -->
-  <div class="banner">
-    Conectando você ao campo
+  <div class="banner-container">
+    <div class="banner-text">Conectando você ao campo</div>
+    <img src="../assets/images/banner.png" alt="Banner alimentos" class="banner-image">
   </div>
 
   <!-- Conteúdo -->
@@ -101,7 +128,7 @@
       <li>Levar alimentos saudáveis e de qualidade à sua mesa.</li>
     </ul>
 
-    <a href="./desktop2.html" class="btn btn-success">Conheça nossos produtos</a>
+    <a href="../pages/desktop2.html" class="btn btn-success">Conheça nossos produtos</a>
   </div>
 
   <!-- Rodapé simples -->
